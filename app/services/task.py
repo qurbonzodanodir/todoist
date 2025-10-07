@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 from app.repositories.task import TaskPepository
-from app.schemas.task import TaskRequest,TaskResponse,TaskUpdateRequest
+from app.schemas.task import TaskRequest,TaskUpdateRequest
 
 
 

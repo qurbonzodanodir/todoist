@@ -6,7 +6,7 @@ from app.schemas.task import *
 from app.services.task import TaskService
 
 
-router = APIRouter(prefix="/tasks", tags=["Taks"])
+router = APIRouter(prefix="/task", tags=["Taks"])
 
 
 @router.get("/",response_model=list[TaskResponse])
@@ -43,10 +43,3 @@ def delete_task(task_id: int,db: Session = Depends(get_db)):
 
 
 
-
-@router.put("/{task_id}",response_model=TaskResponse)
-def update_task(task_id: int, task_data:TaskUpdateRequest, db: Session = Depends(get_db)):
-    task = TaskService(db).update(task_id,task_data)
-    if not task:
-        return HTTPException(status_code=404,detail="Task not found")
-    return task

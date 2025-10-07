@@ -17,7 +17,7 @@ class TaskPepository:
     
 
     def create(self, task_data: TaskRequest):
-        task =Task(**task_data.dict())
+        task = Task(**task_data.dict())
         self.db.add(task)
         self.db.commit()
         self.db.refresh(task)
